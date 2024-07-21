@@ -42,9 +42,13 @@ module.exports = {
         newlinesBetween: 'always',
         groups: [
           ['/^next/', 'module'],
-          '/^@/styles/',
           '/^@/components/',
-          '/^@/lib/',
+          '/^@/hooks/',
+          '/^@/layouts/',
+          '/^@/queries/',
+          '/^@/store/',
+          '/^@/styles/',
+          '/^@/types/',
           ['parent', 'sibling', 'index']
         ],
         alphabetize: {

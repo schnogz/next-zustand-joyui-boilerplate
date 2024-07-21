@@ -9,16 +9,21 @@
   "scripts": {
     "build": "next build",
     "clean": "rm -rf node_modules && rm -rf out",
-    "ci:lint": "eslint './src/**/*' --max-warnings=0",
+    "ci:lint": "eslint ./src/**/* --max-warnings=0",
     "dev": "next dev",
     "lint": "eslint './src/**/*' --fix",
     "start": "next start",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "npm run lint"
+    "*.{js,jsx,ts,tsx}": "npm run ci:lint"
   },
   "dependencies": {
+    "@emotion/react": "11.13.0",
+    "@emotion/styled": "11.13.0",
+    "@mui/icons-material": "5.16.4",
+    "@mui/joy": "5.0.0-beta.48",
+    "@tanstack/react-query": "5.51.11",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "next": "14.2.5"
