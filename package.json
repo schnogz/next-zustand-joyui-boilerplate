@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "next build",
+    "clean": "rm -rf node_modules && rm -rf out",
     "ci:lint": "eslint './src/**/*' --max-warnings=0",
     "dev": "next dev",
     "lint": "eslint './src/**/*' --fix",
