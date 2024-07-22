@@ -1,13 +1,25 @@
 module.exports = {
-  root: true,
+  env: {
+    browser: true,
+    es6: true,
+    jest: true,
+    node: true,
+  },
   extends: [
     'next/core-web-vitals',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'prettier'
+    'prettier',
   ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 11,
+    sourceType: 'module',
+  },
   plugins: [
     'react',
     '@typescript-eslint',
@@ -15,31 +27,23 @@ module.exports = {
     'eslint-plugin-import-helpers',
     'testing-library',
     'sort-destructure-keys',
-    'sort-keys-fix'
+    'sort-keys-fix',
   ],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 11,
-    sourceType: 'module'
-  },
-  settings: {
-    react: {
-      version: 'detect'
-    }
-  },
-  env: {
-    es6: true,
-    browser: true,
-    jest: true,
-    node: true
-  },
+  root: true,
   rules: {
+    '@typescript-eslint/no-unused-vars': [
+      2,
+      {
+        argsIgnorePattern: '^_',
+      },
+    ],
     'import-helpers/order-imports': [
       2,
       {
-        newlinesBetween: 'always',
+        alphabetize: {
+          ignoreCase: true,
+          order: 'asc',
+        },
         groups: [
           ['/^next/', 'module'],
           '/^@/components/',
@@ -49,29 +53,25 @@ module.exports = {
           '/^@/store/',
           '/^@/styles/',
           '/^@/types/',
-          ['parent', 'sibling', 'index']
+          ['parent', 'sibling', 'index'],
         ],
-        alphabetize: {
-          order: 'asc',
-          ignoreCase: true
-        }
-      }
-    ],
-    '@typescript-eslint/no-unused-vars': [
-      2,
-      {
-        argsIgnorePattern: '^_'
-      }
+        newlinesBetween: 'always',
+      },
     ],
     'no-console': [
       2,
       {
-        allow: ['warn', 'error']
-      }
+        allow: ['warn', 'error'],
+      },
     ],
-    "react/react-in-jsx-scope": 0,
+    'react/react-in-jsx-scope': 0,
     'sort-destructure-keys/sort-destructure-keys': 2,
     'sort-keys': ['error', 'asc', { caseSensitive: true, minKeys: 2, natural: false }],
     'sort-keys-fix/sort-keys-fix': 1,
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 }
