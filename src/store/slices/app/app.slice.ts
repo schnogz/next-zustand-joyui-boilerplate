@@ -1,13 +1,11 @@
 export type IAppSlice = {
-  app: {
-    sidebarIsOpen: boolean
-  }
+  sidebarIsOpen: boolean
 }
 
 export const initialAppState = {
   sidebarIsOpen: true,
 }
 
-export const createAppSlice = (): IAppSlice => ({
+export const createAppSlice = (): { app: IAppSlice } => ({
   app: { ...initialAppState },
 })

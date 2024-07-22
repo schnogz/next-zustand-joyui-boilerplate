@@ -1,11 +1,10 @@
 import { produce } from 'immer'
 
-import type { IAppSlice } from '@/store/slices/app/app.slice'
 import { Store, useStore } from '@/store/useStore'
 
 export const toggleSidebarIsOpen = () => {
   useStore.setState(
-    produce<Store>((state: IAppSlice) => {
+    produce<Store>((state: Store) => {
       state.app.sidebarIsOpen = !state.app.sidebarIsOpen
     }),
     false,

@@ -1,13 +1,11 @@
 export type IContentSlice = {
-  content: {
-    title: string
-  }
+  title: string
 }
 
 export const initialContentState = {
   title: 'NextJs + Joy UI + Zustand Boilerplate',
 }
 
-export const createContentSlice = (): IContentSlice => ({
+export const createContentSlice = (): { content: IContentSlice } => ({
   content: { ...initialContentState },
 })

@@ -1,4 +1,4 @@
-import { create, StoreApi } from 'zustand'
+import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import { useShallow } from 'zustand/react/shallow'
 
@@ -17,14 +17,13 @@ export const useStore = create(
     },
   ),
 )
-
-export type Store = ReturnType<StoreApi<IAppSlice & IContentSlice>>
+export type Store = ReturnType<typeof useStore.getState>
 
 // entire state selector (avoid usage if possible)
-export const useStoreState = () => useStore(useShallow((state: Store) => state))
+export const useStoreState = () => useStore(useShallow((state) => state))
 
 // app state selector
-export const useAppState = () => useStore(useShallow((state: Store) => state.app))
+export const useAppState = () => useStore(useShallow((state) => state.app as IAppSlice))
 
 // content state selector
-export const useContentState = () => useStore(useShallow((state: Store) => state.content))
+export const useContentState = () => useStore(useShallow((state) => state.content as IContentSlice))
