@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Head from 'next/head'
 
 import theme from '@/styles/theme'
-
 import { AppPropsWithLayout } from '@/types/layout'
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {

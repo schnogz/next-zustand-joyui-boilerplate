@@ -6,11 +6,8 @@ import Input from '@mui/joy/Input'
 import Typography from '@mui/joy/Typography'
 
 import { ColorSchemeToggle } from '@/components/ColorSchemeToggle'
-
 import TwoColumnLayout from '@/layouts/TwoColumn'
-
 import { useContentState } from '@/store/useStore'
-
 import { NextPageWithLayout } from '@/types/layout'
 
 const HomePage: NextPageWithLayout = () => {
