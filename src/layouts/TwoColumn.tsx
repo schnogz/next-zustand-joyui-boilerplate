@@ -11,7 +11,7 @@ const deps = [
     imgUrl: 'https://static-00.iconduck.com/assets.00/react-icon-2048x2048-o8k3ymqa.png',
     name: 'React',
   },
-  { imgUrl: 'https://cdn-icons-png.flaticon.com/256/919/919832.png', name: 'TypeScript' },
+  { imgUrl: 'https://cdn.iconscout.com/icon/free/png-256/free-typescript-3521774-2945272.png?f=webp&w=256', name: 'TypeScript' },
   {
     imgUrl: 'https://pbs.twimg.com/profile_images/1438268853079904265/JUtTwrBC_400x400.jpg',
     name: 'MUI Joy',
@@ -31,7 +31,7 @@ const deps = [
     name: 'Jest',
   },
   {
-    imgUrl: 'https://w7.pngwing.com/pngs/975/336/png-transparent-eslint-hd-logo.png',
+    imgUrl: 'https://cdn.icon-icons.com/icons2/2699/PNG/512/eslint_logo_icon_171175.png',
     name: 'ESLint',
   },
   {
