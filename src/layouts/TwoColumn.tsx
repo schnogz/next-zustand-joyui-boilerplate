@@ -1,8 +1,38 @@
-import AspectRatio from '@mui/joy/AspectRatio'
-import Box from '@mui/joy/Box'
-import Container from '@mui/joy/Container'
-import { typographyClasses } from '@mui/joy/Typography'
+import { Avatar, Box, Container, Grid, typographyClasses, Typography } from '@mui/joy'
 import { PropsWithChildren } from 'react'
+
+const deps = [
+  {
+    imgUrl: 'https://miro.medium.com/v2/resize:fit:1400/1*CStP06JrfLSevaOkPZavvg.png',
+    name: 'NextJs',
+  },
+  { imgUrl: 'https://cdn-icons-png.flaticon.com/256/919/919832.png', name: 'TypeScript' },
+  { imgUrl: 'https://cdn.worldvectorlogo.com/logos/material-ui-1.svg', name: 'MUI Joy' },
+  {
+    imgUrl: 'https://seeklogo.com/images/R/react-query-logo-1340EA4CE9-seeklogo.com.png',
+    name: 'React Query',
+  },
+  {
+    imgUrl:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpHj4UwTW4ANSlNjzQOiiOqfDa6kal9RpF0A&s',
+    name: 'Zustand',
+  },
+  { imgUrl: 'https://seeklogo.com/images/I/immer-logo-6F66C903D6-seeklogo.com.png', name: 'Immer' },
+  {
+    imgUrl:
+      'https://cdn.iconscout.com/icon/free/png-256/free-jest-3521517-2945020.png?f=webp&w=256',
+    name: 'Jest',
+  },
+  {
+    imgUrl: 'https://w7.pngwing.com/pngs/975/336/png-transparent-eslint-hd-logo.png',
+    name: 'ESLint',
+  },
+  {
+    imgUrl:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk3NGvTsc50zIrOgETbYNxkhh0UtVWAS6Bsw&s',
+    name: 'Husky',
+  },
+]
 
 export default function TwoSidedLayout({
   children,
@@ -48,29 +78,37 @@ export default function TwoSidedLayout({
       >
         {children}
       </Box>
-      <AspectRatio
-        ratio={600 / 520}
-        variant='outlined'
-        maxHeight={300}
-        sx={(theme) => ({
-          alignSelf: 'stretch',
-          bgcolor: 'background.level2',
-          [theme.breakpoints.up(834)]: {
-            '--AspectRatio-maxHeight': '520px',
-            '--AspectRatio-minHeight': '400px',
-            alignSelf: 'initial',
-            flexGrow: 1,
-          },
-          borderRadius: 'sm',
-          flexBasis: '50%',
-          minWidth: 300,
-        })}
-      >
-        <img
-          src='https://images.unsplash.com/photo-1483791424735-e9ad0209eea2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
-          alt=''
-        />
-      </AspectRatio>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            '& > div': {
+              border: 'var(--Grid-borderWidth) solid',
+              borderColor: 'divider',
+            },
+            '--Grid-borderWidth': '1px',
+          }}
+        >
+          {deps.map((dep, i) => (
+            <Grid
+              key={i}
+              xs={4}
+              display='flex'
+              flexDirection='column'
+              justifyContent='center'
+              gap={1}
+              alignItems='center'
+              minHeight={150}
+            >
+              <Avatar variant='plain' src={dep.imgUrl} size='lg' color='neutral' />
+              <Typography fontSize='lg' lineHeight='lg'>
+                {dep.name}
+              </Typography>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Container>
   )
 }
