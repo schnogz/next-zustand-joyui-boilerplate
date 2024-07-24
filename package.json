@@ -13,10 +13,10 @@
     "dev": "next dev",
     "lint": "eslint './src/**/*' --fix",
     "start": "next start",
-    "prepare": "husky"
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "*": "npm run ci:lint"
+    "*": "eslint ./src/**/* --max-warnings=0"
   },
   "dependencies": {
     "@emotion/react": "11.13.0",
