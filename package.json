@@ -16,7 +16,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "npm run ci:lint"
+    "*": "npm run ci:lint"
   },
   "dependencies": {
     "@emotion/react": "11.13.0",

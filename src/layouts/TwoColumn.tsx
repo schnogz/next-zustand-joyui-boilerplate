@@ -11,7 +11,11 @@ const deps = [
     imgUrl: 'https://static-00.iconduck.com/assets.00/react-icon-2048x2048-o8k3ymqa.png',
     name: 'React',
   },
-  { imgUrl: 'https://cdn.iconscout.com/icon/free/png-256/free-typescript-3521774-2945272.png?f=webp&w=256', name: 'TypeScript' },
+  {
+    imgUrl:
+      'https://cdn.iconscout.com/icon/free/png-256/free-typescript-3521774-2945272.png?f=webp&w=256',
+    name: 'TypeScript',
+  },
   {
     imgUrl: 'https://pbs.twimg.com/profile_images/1438268853079904265/JUtTwrBC_400x400.jpg',
     name: 'MUI Joy',
