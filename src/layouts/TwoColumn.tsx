@@ -7,10 +7,18 @@ const deps = [
       'https://www.rlogical.com/wp-content/uploads/2023/03/Rlogical-Blog-Images-thumbnail.webp',
     name: 'NextJs',
   },
-  { imgUrl: 'https://cdn-icons-png.flaticon.com/256/919/919832.png', name: 'TypeScript' },
-  { imgUrl: 'https://cdn.worldvectorlogo.com/logos/material-ui-1.svg', name: 'MUI Joy' },
   {
-    imgUrl: 'https://seeklogo.com/images/R/react-query-logo-1340EA4CE9-seeklogo.com.png',
+    imgUrl: 'https://static-00.iconduck.com/assets.00/react-icon-2048x2048-o8k3ymqa.png',
+    name: 'React',
+  },
+  { imgUrl: 'https://cdn-icons-png.flaticon.com/256/919/919832.png', name: 'TypeScript' },
+  {
+    imgUrl: 'https://pbs.twimg.com/profile_images/1438268853079904265/JUtTwrBC_400x400.jpg',
+    name: 'MUI Joy',
+  },
+  {
+    imgUrl:
+      'https://media.dev.to/cdn-cgi/image/width=1080,height=1080,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fglll1swn5umyjemv09ql.png',
     name: 'React Query',
   },
   {
@@ -18,10 +26,8 @@ const deps = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpHj4UwTW4ANSlNjzQOiiOqfDa6kal9RpF0A&s',
     name: 'Zustand',
   },
-  { imgUrl: 'https://seeklogo.com/images/I/immer-logo-6F66C903D6-seeklogo.com.png', name: 'Immer' },
   {
-    imgUrl:
-      'https://cdn.iconscout.com/icon/free/png-256/free-jest-3521517-2945020.png?f=webp&w=256',
+    imgUrl: 'https://logowik.com/content/uploads/images/jest-js7858.logowik.com.webp',
     name: 'Jest',
   },
   {
