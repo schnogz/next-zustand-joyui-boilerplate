@@ -1,61 +1,72 @@
-import createCache from '@emotion/cache'
-import CssBaseline from '@mui/joy/CssBaseline'
-import { CssVarsProvider, getInitColorSchemeScript } from '@mui/joy/styles'
-import { useServerInsertedHTML } from 'next/navigation'
-import { ReactNode, useState } from 'react'
+import { inputClasses } from '@mui/joy/Input'
+import { extendTheme } from '@mui/joy/styles'
 
-interface ThemeRegistryProps {
-  children: ReactNode
-  options: Parameters<typeof createCache>[0]
-}
-export default function ThemeRegistry(props: ThemeRegistryProps) {
-  const { children, options } = props
-
-  const [{ cache, flush }] = useState(() => {
-    const cache = createCache(options)
-    cache.compat = true
-    const prevInsert = cache.insert
-    let inserted: string[] = []
-    cache.insert = (...args) => {
-      const serialized = args[1]
-      if (cache.inserted[serialized.name] === undefined) {
-        inserted.push(serialized.name)
-      }
-      return prevInsert(...args)
-    }
-    const flush = () => {
-      const prevInserted = inserted
-      inserted = []
-      return prevInserted
-    }
-    return { cache, flush }
-  })
-
-  useServerInsertedHTML(() => {
-    const names = flush()
-    if (names.length === 0) {
-      return null
-    }
-    let styles = ''
-    for (const name of names) {
-      styles += cache.inserted[name]
-    }
-    return (
-      <style
-        key={cache.key}
-        data-emotion={`${cache.key} ${names.join(' ')}`}
-        dangerouslySetInnerHTML={{
-          __html: styles,
-        }}
-      />
-    )
-  })
-
-  return (
-    <CssVarsProvider defaultMode='dark'>
-      <CssBaseline />
-      {getInitColorSchemeScript({ defaultMode: 'system' })}
-      {children}
-    </CssVarsProvider>
-  )
-}
+export default extendTheme({
+  colorSchemes: {
+    dark: {
+      palette: {
+        background: {
+          body: 'var(--joy-palette-common-black)',
+          surface: 'var(--joy-palette-neutral-900)',
+        },
+        primary: {
+          100: '#0A318C',
+          200: '#1347CC',
+          300: '#1055EA',
+          400: '#357AEA',
+          50: '#1D223F',
+          500: '#2E88F6',
+          600: '#50A1FF',
+          700: '#7AB7FF',
+          800: '#DCEBFE',
+          900: '#F0F6FF',
+          solidActiveBg: 'var(--joy-palette-primary-400)',
+          solidBg: 'var(--joy-palette-primary-700)',
+          solidColor: 'var(--joy-palette-common-black)',
+          solidHoverBg: 'var(--joy-palette-primary-600)',
+        },
+      },
+    },
+    light: {
+      palette: {
+        primary: {
+          100: '#DCEBFE',
+          200: '#BDDAFE',
+          300: '#91C3FC',
+          400: '#60A5FA',
+          50: '#F2F7FF',
+          500: '#3479E8',
+          600: '#2362EA',
+          700: '#1D4FD7',
+          800: '#1D3FAE',
+          900: '#1E3B8A',
+          solidActiveBg: 'var(--joy-palette-primary-400)',
+          solidBg: 'var(--joy-palette-primary-600)',
+          solidHoverBg: 'var(--joy-palette-primary-500)',
+        },
+      },
+    },
+  },
+  components: {
+    JoyInput: {
+      styleOverrides: {
+        input: {
+          caretColor: 'var(--Input-focusedHighlight)',
+        },
+        root: ({ ownerState, theme }) => ({
+          ...(ownerState.variant === 'outlined' && {
+            [`&:not(.${inputClasses.focused}):hover::before`]: {
+              boxShadow: `inset 0 0 0 2px ${
+                theme.vars.palette?.[ownerState.color!]?.outlinedBorder
+              }`,
+            },
+          }),
+        }),
+      },
+    },
+  },
+  fontFamily: {
+    body: "'Inter', var(--joy-fontFamily-fallback)",
+    display: "'Inter', var(--joy-fontFamily-fallback)",
+  },
+})
