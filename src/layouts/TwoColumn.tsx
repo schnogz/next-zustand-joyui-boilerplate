@@ -3,7 +3,8 @@ import { PropsWithChildren } from 'react'
 
 const deps = [
   {
-    imgUrl: 'https://miro.medium.com/v2/resize:fit:1400/1*CStP06JrfLSevaOkPZavvg.png',
+    imgUrl:
+      'https://www.rlogical.com/wp-content/uploads/2023/03/Rlogical-Blog-Images-thumbnail.webp',
     name: 'NextJs',
   },
   { imgUrl: 'https://cdn-icons-png.flaticon.com/256/919/919832.png', name: 'TypeScript' },
